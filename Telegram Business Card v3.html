@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kh4rtur</title>
+
+<style>
+:root {
+    --bg-dark: rgb(19,26,34);
+    --bg-light: #ffffff;
+    --card-dark: #1f2d3a;
+    --card-light: #f4f6f8;
+    --text-dark: #ffffff;
+    --text-light: #111111;
+    --accent: #2AABEE;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background 0.4s, color 0.4s;
+}
+
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.light {
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: background 0.4s;
+}
+
+.dark .card {
+    background: var(--card-dark);
+}
+
+.light .card {
+    background: var(--card-light);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 16px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 8px;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(42,171,238,0.4);
+}
+
+.button.secondary {
+    background: #ff4d4d;
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.nft-card {
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+.nft-card img {
+    width: 100%;
+    display: block;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nft-card:hover .overlay {
+    opacity: 1;
+}
+
+.center {
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card center">
+        <img src="ава1.jpg" class="avatar">
+        <h1>@kh4rtur</h1>
+        <a class="button" href="https://t.me/kh4rtur" target="_blank">kh4rtur t.me</a>
+    </div>
+
+    <div class="card center">
+        <a class="button secondary" href="https://www.youtube.com/results?search_query=Барнаульская+Христианская+Церковь" target="_blank">
+            БХЦ youtube
+        </a>
+        <a class="button" href="https://t.me/Church_Barnaul" target="_blank">
+            БХЦ t.me
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="nft-grid">
+            <a href="https://t.me/nft/VoodooDoll-19509" target="_blank" class="nft-card">
+                <img src="1.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+            <a href="https://t.me/nft/WitchHat-44959" target="_blank" class="nft-card">
+                <img src="2.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+            <a href="https://t.me/nft/LightSword-23178" target="_blank" class="nft-card">
+                <img src="3.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+            <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card">
+                <img src="4.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+            <a href="https://t.me/nft/BigYear-71005" target="_blank" class="nft-card">
+                <img src="5.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+            <a href="https://t.me/nft/LunarSnake-4132" target="_blank" class="nft-card">
+                <img src="6.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function applyTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const hour = new Date().getHours();
+
+    document.body.classList.remove('dark', 'light');
+
+    if (prefersDark || hour >= 20 || hour < 7) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.add('light');
+    }
+}
+
+applyTheme();
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+</script>
+
+</body>
+</html>
