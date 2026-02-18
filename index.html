@@ -16,6 +16,7 @@
     --accent: #4a90e2;
     --accent-light: #5aa3f0;
     --first-card-bg: rgb(75, 124, 174);
+    --footer-text: #6b7280;
 }
 
 * {
@@ -32,11 +33,13 @@ body {
 body.dark {
     background: var(--bg-dark);
     color: var(--text-dark);
+    --footer-text: #9ca3af;
 }
 
 body.light {
     background: var(--bg-light);
     color: var(--text-light);
+    --footer-text: #6b7280;
 }
 
 .container {
@@ -196,6 +199,36 @@ h1 {
     text-align: center;
 }
 
+.footer {
+    width: 100%;
+    max-width: 900px;
+    margin: 60px auto 40px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-text {
+    font-size: 14px;
+    color: var(--footer-text);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer-links {
+    margin-top: 8px;
+}
+
+.footer-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 4px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
 /* iPhone 13 mini (375px) - ТОЧНО помещается */
 @media (max-width: 430px) {
     .container {
@@ -224,7 +257,14 @@ h1 {
         height: 105px;
     }
     
-    /* Расчет: 3×105 + 2×10 = 330px + padding = 375px ✓ */
+    .footer {
+        margin: 40px auto 30px;
+        padding: 0 12px;
+    }
+    
+    .footer-text {
+        font-size: 13px;
+    }
 }
 
 /* Средние мобильные */
@@ -325,6 +365,15 @@ h1 {
     </div>
 
 </div>
+
+<footer class="footer">
+    <p class="footer-text">
+        Made for free with <a href="https://chat.openai.com" target="_blank" class="footer-link">ChatGPT</a> and 
+        <a href="https://www.perplexity.ai" target="_blank" class="footer-link">Perplexity</a> using 
+        <a href="https://vibe-coding.com" target="_blank" class="footer-link">vibe-coding</a>. 
+        Hosted on <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>.
+    </p>
+</footer>
 
 <script>
 function applyTheme() {
