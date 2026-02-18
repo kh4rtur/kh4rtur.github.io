@@ -99,11 +99,10 @@ h1 {
 .nft-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 540px;
+    gap: 20px;
+    justify-content: center;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
 }
 
 .nft-card {
@@ -113,7 +112,8 @@ h1 {
     transition: 0.3s;
     position: relative;
     aspect-ratio: 1;
-    height: 130px;
+    height: 140px;
+    min-width: 140px;
 }
 
 .nft-card img {
@@ -150,56 +150,37 @@ h1 {
     text-align: center;
 }
 
-/* Десктоп */
-@media (min-width: 769px) {
+/* Мобильные */
+@media (max-width: 768px) {
     .nft-grid {
-        max-width: 540px;
         gap: 16px;
-        padding: 0;
-    }
-    
-    .nft-card {
-        height: 130px;
-    }
-}
-
-/* Планшеты */
-@media (max-width: 768px) and (min-width: 481px) {
-    .container {
-        padding: 15px;
-    }
-    
-    .nft-grid {
         max-width: 480px;
-        gap: 14px;
-        padding: 0 8px;
     }
     
     .nft-card {
-        height: 115px;
+        height: 120px;
+        min-width: 120px;
     }
 }
 
-/* Мобильные (iPhone 13 mini и подобные) */
 @media (max-width: 480px) {
     .container {
-        padding: 12px;
-        margin: 20px auto;
+        padding: 15px;
+        margin: 25px auto;
     }
     
     .card {
-        padding: 20px;
+        padding: 25px 20px;
     }
     
     .nft-grid {
+        gap: 14px;
         max-width: 100%;
-        gap: 12px;
-        padding: 0 8px;
     }
     
     .nft-card {
-        height: 105px;
-        border-radius: 14px;
+        height: 110px;
+        min-width: 110px;
     }
     
     .overlay {
@@ -230,6 +211,7 @@ h1 {
 
     <div class="card">
         <div class="nft-grid">
+            <!-- Верхний ряд -->
             <a href="https://t.me/nft/VoodooDoll-19509" target="_blank" class="nft-card">
                 <img src="1.JPG">
                 <div class="overlay">Перейти к NFT</div>
@@ -242,12 +224,13 @@ h1 {
                 <img src="3.JPG">
                 <div class="overlay">Перейти к NFT</div>
             </a>
-            <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card">
-                <img src="4.JPG">
-                <div class="overlay">Перейти к NFT</div>
-            </a>
+            <!-- Нижний ряд - поменял местами 4 и 5 -->
             <a href="https://t.me/nft/BigYear-71005" target="_blank" class="nft-card">
                 <img src="5.JPG">
+                <div class="overlay">Перейти к NFT</div>
+            </a>
+            <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card">
+                <img src="4.JPG">
                 <div class="overlay">Перейти к NFT</div>
             </a>
             <a href="https://t.me/nft/LunarSnake-4132" target="_blank" class="nft-card">
