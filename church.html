@@ -8,12 +8,13 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #1a1a1a; /* Темный фон для всей страницы */
             color: #333;
         }
         .header {
             position: relative;
-            height: 200px;
+            height: 0;
+            padding-bottom: 56.25%; /* Соотношение 16:9 как на YouTube (height = 56.25% от width) */
             background-image: url('шапка1.jpg');
             background-size: cover;
             background-position: center;
@@ -21,6 +22,7 @@
             align-items: flex-end;
             justify-content: center;
             overflow: hidden;
+            max-height: 400px; /* Максимальная высота для больших экранов */
         }
         .header::before {
             content: '✝';
@@ -48,7 +50,7 @@
         }
         .title {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             color: white;
@@ -56,6 +58,8 @@
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
             z-index: 2;
+            max-width: 80%;
+            text-align: center;
         }
         .links {
             display: flex;
@@ -84,7 +88,7 @@
         .content {
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 30px;
             background: #1a1a1a;
             color: white;
             border-radius: 10px;
@@ -93,11 +97,25 @@
         }
         .content h1 {
             color: #BC8C39;
+            margin-bottom: 20px;
         }
         .address {
             font-size: 18px;
             color: #BC8C39;
             margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .header {
+                padding-bottom: 40%; /* Немного выше для мобильных */
+            }
+            .title {
+                font-size: 24px;
+                bottom: 15px;
+            }
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
