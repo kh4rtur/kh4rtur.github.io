@@ -8,12 +8,13 @@
 <style>
 :root {
     --bg-dark: rgb(19,26,34);
-    --bg-light: #ffffff;
+    --bg-light: #f8fbff;
     --card-dark: #1f2d3a;
-    --card-light: #f4f6f8;
+    --card-light: #ffffff;
     --text-dark: #ffffff;
-    --text-light: #111111;
-    --accent: #2AABEE;
+    --text-light: #1a365d;
+    --accent: #4a90e2;
+    --accent-light: #5aa3f0;
     --first-card-bg: rgb(75, 124, 174);
 }
 
@@ -43,22 +44,25 @@ body.light {
     border-radius: 24px;
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    transition: background 0.4s;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: background 0.4s, box-shadow 0.4s;
     position: relative;
 }
 
 .card:first-child {
     background: var(--first-card-bg) !important;
     color: white;
+    box-shadow: 0 20px 40px rgba(75,124,174,0.3);
 }
 
 .dark .card:not(:first-child) {
     background: var(--card-dark);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .light .card:not(:first-child) {
     background: var(--card-light);
+    box-shadow: 0 20px 40px rgba(74,144,226,0.15);
 }
 
 .avatar {
@@ -85,24 +89,34 @@ h1 {
     font-weight: bold;
     transition: 0.3s;
     margin: 8px;
+    border: 2px solid transparent;
 }
 
 .button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(42,171,238,0.4);
+    box-shadow: 0 10px 20px rgba(74,144,226,0.4);
+    background: var(--accent-light);
 }
 
 .button.secondary {
     background: #ff4d4d;
 }
 
+.button.secondary:hover {
+    background: #ff6666;
+    box-shadow: 0 10px 20px rgba(255,77,77,0.4);
+}
+
 .nft-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 18px;
     justify-content: center;
-    max-width: 600px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .nft-card {
@@ -112,8 +126,10 @@ h1 {
     transition: 0.3s;
     position: relative;
     aspect-ratio: 1;
-    height: 140px;
-    min-width: 140px;
+    width: 100%;
+    max-width: 160px;
+    height: 160px;
+    min-height: 160px;
 }
 
 .nft-card img {
@@ -150,41 +166,52 @@ h1 {
     text-align: center;
 }
 
-/* Мобильные */
-@media (max-width: 768px) {
-    .nft-grid {
-        gap: 16px;
-        max-width: 480px;
-    }
-    
-    .nft-card {
-        height: 120px;
-        min-width: 120px;
-    }
-}
-
-@media (max-width: 480px) {
+/* iPhone 13 mini и маленькие экраны */
+@media (max-width: 430px) {
     .container {
-        padding: 15px;
-        margin: 25px auto;
+        padding: 12px;
+        margin: 20px auto;
     }
     
     .card {
-        padding: 25px 20px;
+        padding: 24px 16px;
+        margin-bottom: 24px;
     }
     
     .nft-grid {
-        gap: 14px;
-        max-width: 100%;
+        gap: 12px;
     }
     
     .nft-card {
-        height: 110px;
-        min-width: 110px;
+        max-width: 115px;
+        height: 115px;
+        min-height: 115px;
+    }
+}
+
+/* Средние мобильные */
+@media (min-width: 431px) and (max-width: 768px) {
+    .nft-grid {
+        gap: 15px;
     }
     
-    .overlay {
-        font-size: 12px;
+    .nft-card {
+        max-width: 135px;
+        height: 135px;
+        min-height: 135px;
+    }
+}
+
+/* Десктоп */
+@media (min-width: 769px) {
+    .nft-grid {
+        gap: 20px;
+    }
+    
+    .nft-card {
+        max-width: 160px;
+        height: 160px;
+        min-height: 160px;
     }
 }
 </style>
@@ -224,7 +251,7 @@ h1 {
                 <img src="3.JPG">
                 <div class="overlay">Перейти к NFT</div>
             </a>
-            <!-- Нижний ряд - поменял местами 4 и 5 -->
+            <!-- Нижний ряд (4↔5 поменяны) -->
             <a href="https://t.me/nft/BigYear-71005" target="_blank" class="nft-card">
                 <img src="5.JPG">
                 <div class="overlay">Перейти к NFT</div>
