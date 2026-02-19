@@ -1,216 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Барнаульская христианская церковь</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #333;
-        }
-        .header {
-            position: relative;
-            height: 0;
-            padding-bottom: 56.25%;
-            background-image: url('ch1.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            overflow: hidden;
-            max-height: 400px;
-        }
-        .avatar {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid #BC8C39;
-            background-image: url('ch2.jpg');
-            background-size: cover;
-            z-index: 2;
-        }
-        .title {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255,255,255,0.95);
-            font-size: 28px;
-            font-weight: bold;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.3);
-            z-index: 2;
-            max-width: 80%;
-            text-align: center;
-            letter-spacing: 1px;
-        }
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-            background-color: #1a1a1a;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        .links a {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #BC8C39;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(188,140,57,0.4);
-        }
-        .links a:hover {
-            background-color: #1a1a1a;
-            color: #BC8C39;
-            border: 2px solid #BC8C39;
-        }
-        .content {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #1a1a1a;
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-        .content h1 {
-            color: rgba(255,255,255,0.95);
-            margin-bottom: 20px;
-            font-size: 32px;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-        }
-        .telegram-cloud {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #2980b9 100%);
-            border-radius: 25px;
-            padding: 25px;
-            margin: 30px 10px;
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
-            position: relative;
-            overflow: hidden;
-            transform: rotate(-1deg);
-            animation: float 3s ease-in-out infinite;
-        }
-        .telegram-cloud::before {
-            content: '☁️';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            font-size: 40px;
-            opacity: 0.3;
-            animation: float-left 4s ease-in-out infinite reverse;
-        }
-        .telegram-cloud::after {
-            content: '☁️';
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            font-size: 35px;
-            opacity: 0.3;
-            animation: float-right 3.5s ease-in-out infinite;
-        }
-        .telegram-cloud > div {
-            position: relative;
-            z-index: 2;
-            transform: rotate(1deg);
-        }
-        .telegram-loading {
-            color: rgba(255,255,255,0.9);
-            font-size: 18px;
-            font-style: italic;
-        }
-        .content p {
-            color: white;
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 20px 0;
-        }
-        .address {
-            font-size: 20px;
-            color: white;
-            margin-top: 25px;
-            font-weight: 500;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(-1deg); }
-            50% { transform: translateY(-10px) rotate(-1.5deg); }
-        }
-        @keyframes float-left {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
-        @keyframes float-right {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(-10px); }
-        }
-        @media (max-width: 768px) {
-            .header { padding-bottom: 40%; }
-            .title { font-size: 24px; bottom: 15px; }
-            .avatar { width: 80px; height: 80px; }
-            .content h1 { font-size: 28px; }
-            .telegram-cloud { margin: 20px 5px; transform: none; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Барнаульская христианская церковь</title>
+<style>
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #1a1a1a;
+color: #333;
+}
+.header {
+position: relative;
+height: 0;
+padding-bottom: 56.25%; /* 16:9 соотношение (1152/2048 = 56.25%) */
+background-image: url('ch1.jpg');
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: flex-end;
+justify-content: center;
+overflow: hidden;
+max-height: 400px;
+}
+.avatar {
+position: absolute;
+top: 20px;
+left: 20px;
+width: 100px;
+height: 100px;
+border-radius: 50%;
+border: 4px solid #BC8C39;
+background-image: url('ch2.jpg');
+background-size: cover;
+z-index: 2;
+}
+.title {
+position: absolute;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+color: rgba(255,255,255,0.95); /* Очень светлый белый */
+font-size: 28px;
+font-weight: bold;
+text-shadow: 3px 3px 8px rgba(0,0,0,0.9), 0 0 20px rgba(255,255,255,0.3); /* Двойная тень для лучшей читаемости */
+z-index: 2;
+max-width: 80%;
+text-align: center;
+letter-spacing: 1px;
+}
+.links {
+display: flex;
+justify-content: center;
+gap: 20px;
+padding: 20px;
+background-color: #1a1a1a;
+box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+.links a {
+display: inline-block;
+padding: 12px 24px;
+background-color: #BC8C39;
+color: white;
+text-decoration: none;
+border-radius: 25px;
+font-weight: bold;
+transition: all 0.3s;
+box-shadow: 0 2px 8px rgba(188,140,57,0.4);
+}
+.links a:hover {
+background-color: #1a1a1a;
+color: #BC8C39;
+border: 2px solid #BC8C39;
+}
+.content {
+max-width: 800px;
+margin: 40px auto;
+padding: 30px;
+background: #1a1a1a;
+color: white;
+border-radius: 10px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+text-align: center;
+}
+.content h1 {
+color: rgba(255,255,255,0.95); /* Очень светлый белый для "Добро пожаловать!" */
+margin-bottom: 20px;
+font-size: 32px;
+text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+.content p {
+color: white;
+font-size: 18px;
+line-height: 1.6;
+}
+.address {
+font-size: 20px;
+color: white; /* Белый цвет для призыва */
+margin-top: 25px;
+font-weight: 500;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+@media (max-width: 768px) {
+.header {
+padding-bottom: 40%;
+}
+.title {
+font-size: 24px;
+bottom: 15px;
+}
+.avatar {
+width: 80px;
+height: 80px;
+}
+.content h1 {
+font-size: 28px;
+}
+}
+</style>
 </head>
 <body>
-    <div class="header">
-        <div class="avatar"></div>
-        <div class="title">Барнаульская христианская церковь</div>
-    </div>
-    
-    <div class="links">
-        <a href="https://youtube.com/channel/UCa_8XR9xVRDRBhkXJ8dAc3g/live" target="_blank">YouTube</a>
-        <a href="https://rutube.ru/channel/23955983/" target="_blank">Rutube</a> 
-        <a href="https://t.me/Barnaul_Church" target="_blank">Telegram</a>
-    </div>
-    
-    <div class="content">
-        <h1>Добро пожаловать!</h1>
-        
-        <!-- Telegram облачко между приветствием и расписанием -->
-        <div class="telegram-cloud" id="telegram-cloud">
-            <div id="telegram-content">
-                <div class="telegram-loading">⏳ Загружаем последнее сообщение из Telegram...</div>
-            </div>
-        </div>
-        
-        <p>Богослужения: Воскресенье с 10:00, Пятница с 19:00. Адрес: г. Барнаул, ул. Энтузиастов, 8.</p>
-        <div class="address">Присоединяйтесь к нам в молитве и изучении Библии!</div>
-    </div>
-
-    <script>
-        async function loadTelegramPost() {
-            const container = document.getElementById('telegram-content');
-            try {
-                // Используем публичный embed Telegram
-                const embedUrl = 'https://t.me/Barnaul_Church?embed=1';
-                container.innerHTML = `
-                    <iframe src="${embedUrl}" 
-                            width="100%" 
-                            height="400" 
-                            frameborder="0" 
-                            scrolling="no" 
-                            style="border-radius: 15px;">
-                    </iframe>
-                `;
-            } catch (error) {
-                container.innerHTML = '<div style="color: rgba(255,255,255,0.9); font-size: 18px;">Не удалось загрузить Telegram. <a href="https://t.me/Barnaul_Church" style="color: #BC8C39;">Перейти в канал</a></div>';
-            }
-        }
-        
-        // Загружаем при загрузке страницы
-        window.addEventListener('load', loadTelegramPost);
-    </script>
+<div class="header">
+<div class="avatar"></div>
+<div class="title">Барнаульская христианская церковь</div>
+</div>
+<div class="links">
+<a href="https://youtube.com/channel/UCa_8XR9xVRDRBhkXJ8dAc3g/live" target="_blank">YouTube</a>
+<a href="https://rutube.ru/channel/23955983/" target="_blank">Rutube</a>
+<a href="https://t.me/Barnaul_Church" target="_blank">Telegram</a>
+</div>
+<div class="content">
+<h1>Добро пожаловать!</h1>
+<p>Богослужения: Воскресенье с 10:00, Пятница с 19:00. Адрес: г. Барнаул, ул. Энтузиастов, 8.</p>
+<div class="address">Присоединяйтесь к нам в молитве и изучении Библии!</div>
+</div>
 </body>
 </html>
