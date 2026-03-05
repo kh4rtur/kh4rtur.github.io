@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
 
@@ -24,15 +23,17 @@
 --bg-dark:#131a22;
 --bg-light:#f8fbff;
 
---card-dark:rgba(31,45,58,.45);
---card-light:rgba(255,255,255,.55);
+--card-dark:rgba(31,45,58,.55);
+--card-light:rgba(255,255,255,.6);
 
 --text-dark:#ffffff;
 --text-light:#1a365d;
 
-/* новый цвет кнопки */
---accent:#42bdec;
---accent-light:#66cff5;
+/* основной цвет кнопок */
+--accent:#42BDEC;
+--accent-light:#66cff2;
+
+/* плашка под аватаркой */
 
 --first-dark:rgb(110,150,190);
 --first-light:rgb(98,134,172);
@@ -44,10 +45,15 @@ box-sizing:border-box;
 }
 
 body{
+
 margin:0;
+
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
 transition:.35s;
+
 overflow-x:hidden;
+
 }
 
 body.dark{
@@ -61,41 +67,42 @@ color:var(--text-light);
 }
 
 .container{
+
 max-width:900px;
+
 margin:auto;
+
 padding:24px;
+
 display:flex;
+
 flex-direction:column;
+
 align-items:center;
+
 }
 
-/* liquid glass cards */
+/* glass cards */
 
 .card{
 
 border-radius:26px;
+
 padding:22px 24px;
+
 margin-bottom:28px;
+
 width:100%;
 max-width:700px;
 
-backdrop-filter:blur(22px) saturate(160%);
--webkit-backdrop-filter:blur(22px) saturate(160%);
+backdrop-filter:blur(18px) saturate(140%);
+-webkit-backdrop-filter:blur(18px) saturate(140%);
 
-background:linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.02)
-);
-
-border:1px solid rgba(255,255,255,.18);
-
-box-shadow:
-0 20px 45px rgba(0,0,0,.35),
-inset 0 1px rgba(255,255,255,.25);
+border:1px solid rgba(255,255,255,.15);
 
 opacity:0;
 transform:translateY(40px);
+
 animation:fadeUp .7s forwards;
 
 }
@@ -105,50 +112,100 @@ animation:fadeUp .7s forwards;
 .card:nth-child(3){animation-delay:.55s;}
 
 @keyframes fadeUp{
+
 to{
 opacity:1;
 transform:translateY(0);
 }
+
+}
+
+body.dark .card:not(:first-child){
+
+background:var(--card-dark);
+
+box-shadow:0 18px 40px rgba(0,0,0,.35);
+
+}
+
+body.light .card:not(:first-child){
+
+background:var(--card-light);
+
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+
 }
 
 .card:first-child{
+
 color:white;
+
+}
+
+body.dark .card:first-child{
+
 background:var(--first-dark);
+box-shadow:0 20px 45px rgba(71,113,147,.35);
+
 }
 
 body.light .card:first-child{
+
 background:var(--first-light);
+box-shadow:0 20px 45px rgba(71,113,147,.25);
+
 }
 
 .card-title{
+
 text-align:center;
+
 font-size:20px;
+
 font-weight:600;
+
 margin-top:6px;
 margin-bottom:18px;
+
 }
 
 .avatar{
+
 width:120px;
 height:120px;
+
 border-radius:50%;
+
 object-fit:cover;
+
 display:block;
+
 margin:auto;
+
 margin-bottom:20px;
+
 pointer-events:none;
+
 }
 
 h1{
+
 text-align:center;
+
 margin-bottom:18px;
+
 }
 
 .buttons-container{
+
 display:flex;
+
 justify-content:center;
+
 gap:14px;
+
 flex-wrap:wrap;
+
 }
 
 /* кнопки */
@@ -156,18 +213,20 @@ flex-wrap:wrap;
 .button{
 
 display:inline-block;
+
 padding:15px 26px;
+
 border-radius:16px;
 
 background:var(--accent);
 
 color:white;
+
 text-decoration:none;
+
 font-weight:600;
 
 transition:.25s;
-
-box-shadow:0 0 0 rgba(0,0,0,0);
 
 }
 
@@ -177,131 +236,160 @@ transform:translateY(-3px);
 
 background:var(--accent-light);
 
-box-shadow:
-0 10px 25px rgba(66,189,236,.45),
-0 0 20px rgba(66,189,236,.45);
+box-shadow:0 10px 25px rgba(74,144,226,.4);
 
 }
 
-/* gift */
+/* gift кнопка */
 
 .button.secondary{
+
 background:#6d63e6;
+
 }
 
 .button.secondary:hover{
+
 background:#7b71f0;
-box-shadow:
-0 10px 25px rgba(109,99,230,.5),
-0 0 20px rgba(109,99,230,.4);
+
+box-shadow:0 10px 25px rgba(109,99,230,.45);
+
 }
 
-/* reviews */
+/* my reviews */
 
 .button.reviews{
+
 background:#4f8df0;
+
 }
 
 .button.reviews:hover{
+
 background:#6aa3ff;
-box-shadow:
-0 10px 25px rgba(106,163,255,.45),
-0 0 20px rgba(106,163,255,.45);
+
 }
 
-/* NFT */
+/* nft */
 
 .nft-grid{
+
 display:grid;
+
 grid-template-columns:repeat(3,1fr);
+
 gap:14px;
+
 max-width:540px;
+
 margin:auto;
+
 }
 
 .nft-card{
 
 border-radius:16px;
+
 overflow:hidden;
 
 cursor:pointer;
+
 position:relative;
 
-transition:.3s;
+transition:.25s;
 
 aspect-ratio:1;
-
-box-shadow:0 6px 18px rgba(0,0,0,.4);
 
 }
 
 .nft-card img{
+
 width:100%;
 height:100%;
+
 object-fit:cover;
+
 pointer-events:none;
+
 }
 
 .nft-card:hover{
 
-transform:translateY(-6px) scale(1.05);
+transform:translateY(-6px) scale(1.03);
 
-box-shadow:
-0 16px 35px rgba(0,0,0,.55),
-0 0 18px rgba(255,255,255,.15);
+box-shadow:0 16px 35px rgba(0,0,0,.45);
 
 }
 
 .overlay{
 
 position:absolute;
+
 inset:0;
 
-background:rgba(0,0,0,.65);
+background:rgba(0,0,0,.7);
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 font-size:12px;
+
 font-weight:600;
 
 color:white;
 
 opacity:0;
+
 transition:.25s;
 
 }
 
 .nft-card:hover .overlay{
+
 opacity:1;
+
 }
 
 /* footer */
 
 .footer{
+
 text-align:center;
+
 margin-top:30px;
+
 padding:18px;
+
 font-size:13px;
+
 opacity:.8;
+
 }
 
 body.light .footer a{
+
 color:#2b6fd6;
+
 text-decoration:none;
+
 }
 
 body.dark .footer a{
+
 color:#6aa6ff;
+
 text-decoration:none;
+
 }
 
 .footer a:hover{
-text-decoration:underline;
-}
 
-/* mobile */
+text-decoration:underline;
+
+}
 
 @media(max-width:430px){
 
@@ -339,7 +427,9 @@ max-width:360px;
 <a class="button"
 href="https://t.me/kh4rtur"
 target="_blank">
+
 kh4rtur t.me
+
 </a>
 
 </div>
@@ -355,13 +445,17 @@ kh4rtur t.me
 <a class="button secondary"
 href="https://t.me/+COBtMLnnTos5YmEy"
 target="_blank">
+
 gift from me
+
 </a>
 
 <a class="button reviews"
 href="https://t.me/repkh4rtur"
 target="_blank">
+
 my reviews
+
 </a>
 
 </div>
@@ -416,7 +510,7 @@ Made with <a href="https://chat.openai.com" target="_blank">ChatGPT</a> & <a hre
 
 <br>
 
-Hosted on <a href="https://github.com" target="_blank">GitHub</a> • <a href="https://t.me/kh4rtur">Ask me how</a>
+Hosted on GitHub • <a href="https://t.me/kh4rtur">Ask me how</a>
 
 </footer>
 
