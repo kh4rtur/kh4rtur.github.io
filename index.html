@@ -33,19 +33,13 @@ body {
 body.dark {
     background: var(--bg-dark) !important;
     color: var(--text-dark) !important;
+    --footer-text: #9ca3af !important;
 }
 
 body.light {
     background: var(--bg-light) !important;
     color: var(--text-light) !important;
-}
-
-body.light {
-    --footer-text: #6b7280;
-}
-
-body.dark {
-    --footer-text: #9ca3af;
+    --footer-text: #6b7280 !important;
 }
 
 .container {
@@ -235,89 +229,36 @@ h1 {
     text-decoration: underline;
 }
 
-/* iPhone 13 mini (375px) */
+/* Медиа-запросы без изменений */
 @media (max-width: 430px) {
-    .container {
-        padding: 12px;
-        margin: 20px auto;
-    }
-    
-    .card {
-        padding: 20px 16px;
-        margin-bottom: 24px;
-        max-width: 100%;
-    }
-    
-    .card-title {
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-    
-    .nft-grid {
-        gap: 10px;
-        max-width: 345px;
-    }
-    
-    .nft-card {
-        width: 105px;
-        height: 105px;
-    }
-    
-    .footer {
-        margin: 30px auto 20px;
-        padding: 0 12px;
-    }
-    
-    .footer-text {
-        font-size: 13px;
-    }
+    .container { padding: 12px; margin: 20px auto; }
+    .card { padding: 20px 16px; margin-bottom: 24px; max-width: 100%; }
+    .card-title { font-size: 18px; margin-bottom: 20px; }
+    .nft-grid { gap: 10px; max-width: 345px; }
+    .nft-card { width: 105px; height: 105px; }
+    .footer { margin: 30px auto 20px; padding: 0 12px; }
+    .footer-text { font-size: 13px; }
 }
 
-/* Средние мобильные */
 @media (min-width: 431px) and (max-width: 768px) {
-    .nft-grid {
-        gap: 16px;
-        max-width: 420px;
-    }
-    
-    .nft-card {
-        width: 130px;
-        height: 130px;
-    }
+    .nft-grid { gap: 16px; max-width: 420px; }
+    .nft-card { width: 130px; height: 130px; }
 }
 
-/* Десктоп и Макбук */
 @media (min-width: 769px) {
-    .container {
-        padding: 24px;
-    }
-    
-    .card {
-        padding: 32px;
-    }
-    
-    .card-title {
-        font-size: 22px;
-        margin-bottom: 28px;
-    }
-    
-    .nft-grid {
-        gap: 20px;
-        max-width: 540px;
-    }
-    
-    .nft-card {
-        width: 160px;
-        height: 160px;
-    }
+    .container { padding: 24px; }
+    .card { padding: 32px; }
+    .card-title { font-size: 22px; margin-bottom: 28px; }
+    .nft-grid { gap: 20px; max-width: 540px; }
+    .nft-card { width: 160px; height: 160px; }
 }
 </style>
 </head>
 
-<body class="light">
+<body>
 
 <div class="container">
-
+    <!-- Контент без изменений -->
     <div class="card center">
         <img src="ава1.jpg" class="avatar">
         <h1>Артур Хайрутдинов</h1>
@@ -328,12 +269,8 @@ h1 {
         <div class="card-content">
             <h2 class="card-title">Links</h2>
             <div class="buttons-container">
-                <a class="button secondary" href="https://youtube.com/channel/UCa_8XR9xVRDRBhkXJ8dAc3g/live" target="_blank">
-                    important youtube
-                </a>
-                <a class="button" href="https://t.me/Church_Barnaul" target="_blank">
-                    important t.me
-                </a>
+                <a class="button secondary" href="https://youtube.com/channel/UCa_8XR9xVRDRBhkXJ8dAc3g/live" target="_blank">important youtube</a>
+                <a class="button" href="https://t.me/Church_Barnaul" target="_blank">important t.me</a>
             </div>
         </div>
     </div>
@@ -342,63 +279,67 @@ h1 {
         <div class="card-content">
             <h2 class="card-title">Telegram Gifts</h2>
             <div class="nft-grid">
-                <a href="https://t.me/nft/VoodooDoll-19509" target="_blank" class="nft-card">
-                    <img src="1.JPG">
-                    <div class="overlay">Перейти к NFT</div>
-                </a>
-                <a href="https://t.me/nft/HexPot-4950" target="_blank" class="nft-card">
-                    <img src="22.JPG">
-                    <div class="overlay">Перейти к NFT</div>
-                </a>
-                <a href="https://t.me/nft/LightSword-23178" target="_blank" class="nft-card">
-                    <img src="3.JPG">
-                    <div class="overlay">Перейти к NFT</div>
-                </a>
-                <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card">
-                    <img src="5.JPG">
-                    <div class="overlay">Перейти к NFT</div>
-                </a>
-                <a href="https://t.me/nft/FreshSocks-68910" target="_blank" class="nft-card">
-                    <img src="55.JPG">
-                    <div class="overlay">Перейти к NFT</div>
-                </a>
-                <a href="https://t.me/nft/LunarSnake-4132" target="_blank" class="nft-card">
-                    <img src="6.JPG">
-                    <div class="overlay">Перейти к NFT</div>
-                </a>
+                <a href="https://t.me/nft/VoodooDoll-19509" target="_blank" class="nft-card"><img src="1.JPG"><div class="overlay">Перейти к NFT</div></a>
+                <a href="https://t.me/nft/HexPot-4950" target="_blank" class="nft-card"><img src="22.JPG"><div class="overlay">Перейти к NFT</div></a>
+                <a href="https://t.me/nft/LightSword-23178" target="_blank" class="nft-card"><img src="3.JPG"><div class="overlay">Перейти к NFT</div></a>
+                <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card"><img src="5.JPG"><div class="overlay">Перейти к NFT</div></a>
+                <a href="https://t.me/nft/FreshSocks-68910" target="_blank" class="nft-card"><img src="55.JPG"><div class="overlay">Перейти к NFT</div></a>
+                <a href="https://t.me/nft/LunarSnake-4132" target="_blank" class="nft-card"><img src="6.JPG"><div class="overlay">Перейти к NFT</div></a>
             </div>
         </div>
     </div>
-
 </div>
 
 <footer class="footer">
-    <p class="footer-text">
-        Made for free with <a href="https://chat.openai.com" target="_blank" class="footer-link">ChatGPT</a> and 
-        <a href="https://www.perplexity.ai" target="_blank" class="footer-link">Perplexity AI</a>.
-    </p>
-    <p class="footer-text footer-links">
-        Hosted on <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>.
-        <a href="https://t.me/kh4rtur" target="_blank" class="footer-link">How? Ask me, I will help you with that</a>
-    </p>
+    <p class="footer-text">Made for free with <a href="https://chat.openai.com" target="_blank" class="footer-link">ChatGPT</a> and <a href="https://www.perplexity.ai" target="_blank" class="footer-link">Perplexity AI</a>.</p>
+    <p class="footer-text footer-links">Hosted on <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>. <a href="https://t.me/kh4rtur" target="_blank" class="footer-link">How? Ask me, I will help you with that</a></p>
 </footer>
 
 <script>
 function applyTheme() {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Debug в консоль (F12)
+    console.log('=== Theme Debug ===');
+    
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const prefersDark = mql.matches;
     const hour = new Date().getHours();
-
+    const isNight = hour >= 20 || hour < 7;
+    
+    console.log('prefersDark:', prefersDark);
+    console.log('hour:', hour, 'isNight:', isNight);
+    
     document.body.classList.remove('dark', 'light');
-
-    if (prefersDark || hour >= 20 || hour < 7) {
+    
+    let isDark;
+    
+    if (mql.matches !== undefined) {
+        // Приоритет: системная тема
+        isDark = prefersDark;
+        console.log('Used: system preference (prefersDark)');
+    } else {
+        // Fallback: время
+        isDark = isNight;
+        console.log('Used: time fallback (night mode)');
+    }
+    
+    if (isDark) {
         document.body.classList.add('dark');
+        console.log('Applied: dark');
     } else {
         document.body.classList.add('light');
+        console.log('Applied: light');
     }
+    
+    console.log('==================');
 }
 
-applyTheme();
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+// Задержка 100ms для iOS/Safari/Chromium багов + запуск
+setTimeout(applyTheme, 100);
+
+// Listener
+if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+}
 </script>
 
 </body>
