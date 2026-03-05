@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>kh4rtur</title>
 
 <style>
 
-/* ---------------- ROOT COLORS ---------------- */
+/* ---------- COLORS ---------- */
 
 :root{
 
 --bg-light:#f6f8fb;
 --bg-dark:#0f141a;
 
---card-light:#ffffff;
---card-dark:#1c2430;
+--card-light:rgba(255,255,255,0.6);
+--card-dark:rgba(30,40,55,0.6);
 
 --avatar-light:rgb(98,134,172);
 --avatar-dark:rgb(120,160,200);
@@ -25,12 +23,9 @@
 --text-light:#0f141a;
 --text-dark:#ffffff;
 
---link-light:#1b4ed8;
---link-dark:#6ea8ff;
-
 }
 
-/* ---------------- BASE ---------------- */
+/* ---------- BASE ---------- */
 
 *{
 box-sizing:border-box;
@@ -43,8 +38,10 @@ body{
 
 background:var(--bg-light);
 color:var(--text-light);
+
 display:flex;
 justify-content:center;
+
 padding:40px 16px;
 
 }
@@ -56,7 +53,7 @@ color:var(--text-dark);
 
 }
 
-/* ---------------- WRAPPER ---------------- */
+/* ---------- WRAPPER ---------- */
 
 .wrapper{
 
@@ -65,13 +62,13 @@ max-width:720px;
 
 }
 
-/* ---------------- AVATAR CARD ---------------- */
+/* ---------- PROFILE ---------- */
 
 .profile{
 
 background:var(--avatar-light);
-border-radius:28px;
 
+border-radius:28px;
 padding:28px;
 
 display:flex;
@@ -109,7 +106,7 @@ margin-bottom:16px;
 
 }
 
-/* ---------------- BUTTONS ---------------- */
+/* ---------- BUTTONS ---------- */
 
 .buttons{
 
@@ -131,31 +128,39 @@ font-weight:600;
 text-decoration:none;
 color:white;
 
-background:#2d6cdf;
-
 transition:.15s;
 
 }
 
-.button:hover{
+/* kh4rtur кнопка (теперь светлая) */
 
-background:#3b7cff;
-
-}
-
-.button.reviews{
+.button.main{
 
 background:#5ea0ff;
 
 }
 
-.button.reviews:hover{
+.button.main:hover{
 
 background:#79b2ff;
 
 }
 
-/* ---------------- CARD ---------------- */
+/* my reviews кнопка (теперь темная) */
+
+.button.reviews{
+
+background:#2d6cdf;
+
+}
+
+.button.reviews:hover{
+
+background:#3b7cff;
+
+}
+
+/* ---------- CARDS ---------- */
 
 .card{
 
@@ -166,6 +171,11 @@ border-radius:26px;
 padding:22px 24px;
 
 margin-bottom:22px;
+
+/* liquid glass */
+
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
 
 }
 
@@ -187,7 +197,7 @@ margin-bottom:18px;
 
 }
 
-/* ---------------- LINKS ---------------- */
+/* ---------- LINKS ---------- */
 
 .links{
 
@@ -207,19 +217,21 @@ text-decoration:none;
 
 font-weight:500;
 
-background:#eef3ff;
-color:var(--link-light);
+background:rgba(255,255,255,0.35);
+
+color:#1b4ed8;
 
 }
 
 body.dark .link{
 
-background:#273244;
-color:var(--link-dark);
+background:rgba(255,255,255,0.08);
+
+color:#7fb0ff;
 
 }
 
-/* ---------------- NFT GRID ---------------- */
+/* ---------- NFT GRID ---------- */
 
 .nfts{
 
@@ -245,7 +257,7 @@ transform:scale(1.05);
 
 }
 
-/* ---------------- FOOTER ---------------- */
+/* ---------- FOOTER ---------- */
 
 .footer{
 
@@ -260,26 +272,24 @@ margin-top:12px;
 .footer a{
 
 text-decoration:none;
-
-color:var(--link-light);
+color:#3b6cff;
 
 }
 
 body.dark .footer a{
 
-color:var(--link-dark);
+color:#7fb0ff;
 
 }
 
 .footer .chatgpt{
 
 display:block;
-
 margin-top:6px;
 
 }
 
-/* ---------------- MOBILE ---------------- */
+/* ---------- MOBILE ---------- */
 
 @media (max-width:600px){
 
@@ -299,7 +309,6 @@ height:96px;
 .button{
 
 padding:12px 18px;
-
 font-size:15px;
 
 }
@@ -320,23 +329,17 @@ font-size:15px;
 <img class="avatar" src="https://i.imgur.com/6VBx3io.jpeg">
 
 <div class="username">
-
 kh4rtur
-
 </div>
 
 <div class="buttons">
 
-<a class="button" href="https://t.me/kh4rtur">
-
+<a class="button main" href="https://t.me/kh4rtur">
 kh4rtur t.me
-
 </a>
 
 <a class="button reviews" href="#">
-
 my reviews
-
 </a>
 
 </div>
@@ -348,29 +351,21 @@ my reviews
 <div class="card">
 
 <div class="card-title">
-
 links
-
 </div>
 
 <div class="links">
 
 <a class="link" href="https://t.me/kh4rtur">
-
 telegram
-
 </a>
 
 <a class="link" href="#">
-
 twitter
-
 </a>
 
 <a class="link" href="#">
-
 github
-
 </a>
 
 </div>
@@ -382,9 +377,7 @@ github
 <div class="card">
 
 <div class="card-title">
-
 telegram gifts
-
 </div>
 
 <div class="nfts">
@@ -408,9 +401,7 @@ telegram gifts
 Hosted on GitHub • <a href="https://t.me/kh4rtur">Ask me how</a>
 
 <a class="chatgpt" href="https://openai.com/chatgpt">
-
 Made with ChatGPT
-
 </a>
 
 </div>
