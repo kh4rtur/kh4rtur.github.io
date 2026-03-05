@@ -377,7 +377,75 @@ Hosted on <a href="https://github.com" target="_blank" class="footer-link">GitHu
 </p>
 </footer>
 
-<script src="theme-detector.js"></script>
+<script>
+// theme-detector встроенный (НЕ НУЖЕН отдельный файл!)
+(function() {
+    'use strict';
+    
+    function getPreferredTheme() {
+        // 1. localStorage (ручной выбор)
+        try {
+            const saved = localStorage.getItem('userTheme');
+            if (saved === 'dark' || saved === 'light') {
+                console.log('✅ localStorage:', saved);
+                return saved;
+            }
+        } catch(e) {
+            console.log('⚠️ localStorage недоступен');
+        }
+        
+        // 2. Системная тема
+        try {
+            const mql = window.matchMedia('(prefers-color-scheme: dark)');
+            if (typeof mql.matches !== 'undefined') {
+                const system = mql.matches ? 'dark' : 'light';
+                console.log('✅ Система:', system);
+                return system;
+            }
+        } catch(e) {
+            console.log('⚠️ matchMedia недоступен');
+        }
+        
+        // 3. Время
+        const hour = new Date().getHours();
+        const timeTheme = (hour >= 20 || hour < 7) ? 'dark' : 'light';
+        console.log('✅ Время (' + hour + 'ч):', timeTheme);
+        return timeTheme;
+    }
+    
+    function applyTheme(theme) {
+        const body = document.body;
+        body.classList.remove('dark', 'light');
+        body.classList.add(theme);
+        console.log('🎨 Применена:', theme);
+    }
+    
+    // Запуск ПОСЛЕ полной загрузки DOM+CSS
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+        initTheme();
+    }
+    
+    function initTheme() {
+        setTimeout(() => {
+            const theme = getPreferredTheme();
+            applyTheme(theme);
+        }, 50); // Небольшая задержка для CSS
+    }
+    
+    // Глобальные функции для ручной смены
+    window.toggleTheme = function() {
+        const current = document.body.classList.contains('dark') ? 'light' : 'dark';
+        localStorage.setItem('userTheme', current);
+        applyTheme(current);
+    };
+    
+    window.getCurrentTheme = getPreferredTheme;
+    
+})();
+</script>
+
 
 </body>
 </html>
