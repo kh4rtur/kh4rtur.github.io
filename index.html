@@ -33,10 +33,13 @@
 --accent:#4a90e2;
 --accent-light:#5aa3f0;
 
---first-dark:rgb(60,95,130);
+/* плашка под аватаркой */
 
-/* затемнен цвет верхней карточки чтобы кнопка не сливалась */
---first-light:#2f6aa8;
+/* в темной версии стала светлее */
+--first-dark:rgb(88,135,175);
+
+/* в светлой возвращена как было */
+--first-light:#477193;
 
 }
 
@@ -195,8 +198,6 @@ margin-bottom:18px;
 
 }
 
-/* контейнер кнопок */
-
 .buttons-container{
 
 display:flex;
@@ -215,7 +216,6 @@ flex-wrap:wrap;
 
 display:inline-block;
 
-/* немного увеличены */
 padding:15px 26px;
 
 border-radius:16px;
@@ -242,7 +242,7 @@ box-shadow:0 10px 25px rgba(74,144,226,.4);
 
 }
 
-/* фиолетовая кнопка */
+/* gift кнопка */
 
 .button.secondary{
 
@@ -258,18 +258,32 @@ box-shadow:0 10px 25px rgba(109,99,230,.45);
 
 }
 
+/* кнопка my reviews темнее */
+
+.button.reviews{
+
+background:#2f6fd1;
+
+}
+
+.button.reviews:hover{
+
+background:#3a7be0;
+
+}
+
 /* nft */
 
 .nft-grid{
 
 display:grid;
 
-/* всегда 3 колонки */
 grid-template-columns:repeat(3,1fr);
 
 gap:14px;
 
-max-width:360px;
+/* увеличен размер NFT на ПК */
+max-width:480px;
 
 margin:auto;
 
@@ -354,13 +368,25 @@ padding:18px;
 
 font-size:13px;
 
-opacity:.6;
+opacity:.8;
 
 }
 
-.footer a{
+/* ссылки светлой темы */
 
-color:var(--accent);
+body.light .footer a{
+
+color:#2b6fd6;
+
+text-decoration:none;
+
+}
+
+/* ссылки темной темы */
+
+body.dark .footer a{
+
+color:#6aa6ff;
 
 text-decoration:none;
 
@@ -386,6 +412,7 @@ padding:20px 16px;
 
 .nft-grid{
 gap:10px;
+max-width:360px;
 }
 
 }
@@ -432,7 +459,7 @@ gift from me
 
 </a>
 
-<a class="button"
+<a class="button reviews"
 href="https://t.me/repkh4rtur"
 target="_blank">
 
@@ -488,8 +515,11 @@ my reviews
 
 <footer class="footer">
 
-Made with <a href="https://chat.openai.com" target="_blank">ChatGPT</a> & <a href="https://perplexity.ai" target="_blank">Perplexity</a> <br>
-Hosted on <a href="https://github.com" target="_blank">GitHub</a>
+Made with <a href="https://chat.openai.com" target="_blank">ChatGPT</a> & <a href="https://perplexity.ai" target="_blank">Perplexity</a>
+
+<br>
+
+Hosted on GitHub • <a href="https://t.me/kh4rtur">Ask me how</a>
 
 </footer>
 
