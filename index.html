@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
 
@@ -32,11 +33,10 @@
 --accent:#4a90e2;
 --accent-light:#5aa3f0;
 
-/* цвет верхней карточки */
---first-dark:rgb(71,113,147);
+--first-dark:rgb(60,95,130);
 
-/* изменен цвет светлой темы (более темный голубой) */
---first-light:#3d7fd1;
+/* затемнен цвет верхней карточки чтобы кнопка не сливалась */
+--first-light:#2f6aa8;
 
 }
 
@@ -54,10 +54,6 @@ transition:.35s;
 
 overflow-x:hidden;
 
-/* центрирование сайта на любых устройствах */
-display:flex;
-justify-content:center;
-
 }
 
 body.dark{
@@ -72,12 +68,11 @@ color:var(--text-light);
 
 .container{
 
-/* немного улучшена ширина чтобы было красиво на Mac */
-max-width:760px;
+max-width:900px;
 
 margin:auto;
 
-padding:28px 20px;
+padding:24px;
 
 display:flex;
 
@@ -93,14 +88,12 @@ align-items:center;
 
 border-radius:26px;
 
-/* уменьшены верхние отступы */
-padding:22px 28px;
+padding:24px;
 
 margin-bottom:28px;
 
 width:100%;
-
-max-width:640px;
+max-width:700px;
 
 backdrop-filter:blur(18px) saturate(140%);
 -webkit-backdrop-filter:blur(18px) saturate(140%);
@@ -171,9 +164,7 @@ font-size:20px;
 
 font-weight:600;
 
-/* уменьшен верхний отступ */
-margin-top:0;
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
 
@@ -204,26 +195,28 @@ margin-bottom:18px;
 
 }
 
+/* контейнер кнопок */
+
 .buttons-container{
 
-text-align:center;
-
-}
-
-/* отдельный стиль для links */
-.links-buttons{
-
 display:flex;
-justify-content:space-between;
+
+justify-content:center;
+
 gap:14px;
 
+flex-wrap:wrap;
+
 }
+
+/* кнопки */
 
 .button{
 
 display:inline-block;
 
-padding:14px 22px;
+/* немного увеличены */
+padding:15px 26px;
 
 border-radius:16px;
 
@@ -234,8 +227,6 @@ color:white;
 text-decoration:none;
 
 font-weight:600;
-
-margin:8px;
 
 transition:.25s;
 
@@ -251,19 +242,19 @@ box-shadow:0 10px 25px rgba(74,144,226,.4);
 
 }
 
-/* изменена кнопка gift from me (фиолетовая) */
+/* фиолетовая кнопка */
 
 .button.secondary{
 
-background:#7a6ff0;
+background:#6d63e6;
 
 }
 
 .button.secondary:hover{
 
-background:#8b7fff;
+background:#7b71f0;
 
-box-shadow:0 10px 25px rgba(122,111,240,.45);
+box-shadow:0 10px 25px rgba(109,99,230,.45);
 
 }
 
@@ -273,12 +264,12 @@ box-shadow:0 10px 25px rgba(122,111,240,.45);
 
 display:grid;
 
-/* адаптивная сетка чтобы красиво выглядело на любых устройствах */
-grid-template-columns:repeat(auto-fit,minmax(95px,1fr));
+/* всегда 3 колонки */
+grid-template-columns:repeat(3,1fr);
 
 gap:14px;
 
-max-width:420px;
+max-width:360px;
 
 margin:auto;
 
@@ -351,34 +342,33 @@ opacity:1;
 
 }
 
-/* footer — сделан более незаметным */
+/* footer */
 
 .footer{
 
 text-align:center;
 
-margin-top:40px;
+margin-top:30px;
 
-padding:12px;
+padding:18px;
 
-font-size:12px;
+font-size:13px;
 
-opacity:.55;
+opacity:.6;
 
 }
 
 .footer a{
 
-color:inherit;
-text-decoration:none;
+color:var(--accent);
 
-border-bottom:1px dotted rgba(255,255,255,.3);
+text-decoration:none;
 
 }
 
 .footer a:hover{
 
-opacity:.9;
+text-decoration:underline;
 
 }
 
@@ -387,7 +377,7 @@ opacity:.9;
 @media(max-width:430px){
 
 .container{
-padding:14px;
+padding:16px;
 }
 
 .card{
@@ -401,6 +391,7 @@ gap:10px;
 }
 
 </style>
+
 </head>
 
 <body class="dark">
@@ -427,13 +418,11 @@ kh4rtur t.me
 
 </div>
 
-
 <div class="card">
 
 <h2 class="card-title">Links</h2>
 
-<!-- кнопки теперь слева и справа -->
-<div class="buttons-container links-buttons">
+<div class="buttons-container">
 
 <a class="button secondary"
 href="https://t.me/+COBtMLnnTos5YmEy"
@@ -454,7 +443,6 @@ my reviews
 </div>
 
 </div>
-
 
 <div class="card">
 
@@ -498,20 +486,12 @@ my reviews
 
 </div>
 
-
 <footer class="footer">
 
-Made with 
-<a href="https://chat.openai.com" target="_blank">ChatGPT</a> & 
-<a href="https://perplexity.ai" target="_blank">Perplexity</a>
-
-<br>
-
-Hosted on 
-<a href="https://github.com" target="_blank">GitHub</a>
+Made with <a href="https://chat.openai.com" target="_blank">ChatGPT</a> & <a href="https://perplexity.ai" target="_blank">Perplexity</a> <br>
+Hosted on <a href="https://github.com" target="_blank">GitHub</a>
 
 </footer>
-
 
 <script>
 
@@ -558,7 +538,6 @@ body.classList.add("light");
 }
 
 applyTheme();
-
 
 /* basic protection */
 
