@@ -17,6 +17,9 @@
     --accent-light: #5aa3f0;
     --first-card-bg: rgb(71, 113, 147);
     --footer-text: #6b7280;
+    --glass-bg: rgba(255,255,255,0.1);
+    --glass-border: rgba(255,255,255,0.2);
+    --glass-blur: blur(20px);
 }
 
 * {
@@ -26,20 +29,57 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    transition: background 0.4s, color 0.4s;
+    transition: all 0.4s ease;
     width: 100%;
 }
 
 body.dark {
-    background: var(--bg-dark) !important;
-    color: var(--text-dark) !important;
-    --footer-text: #9ca3af !important;
+    background: var(--bg-dark);
+    color: var(--text-dark);
+    --footer-text: #9ca3af;
+    --glass-bg: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.1);
 }
 
 body.light {
-    background: var(--bg-light) !important;
-    color: var(--text-light) !important;
-    --footer-text: #6b7280 !important;
+    background: var(--bg-light);
+    color: var(--text-light);
+    --footer-text: #6b7280;
+    --glass-bg: rgba(255,255,255,0.25);
+    --glass-border: rgba(255,255,255,0.4);
+}
+
+/* Кнопка-тоггл стекло */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 2px solid var(--glass-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(180deg);
+    box-shadow: 0 12px 40px rgba(74,144,226,0.4);
+    background: rgba(74,144,226,0.2);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 .container {
@@ -57,7 +97,7 @@ body.light {
     padding: 28px;
     margin-bottom: 30px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    transition: background 0.4s, box-shadow 0.4s;
+    transition: all 0.4s ease;
     position: relative;
     width: 100%;
     max-width: 700px;
@@ -79,157 +119,64 @@ body.light .card:not(:first-child) {
     box-shadow: 0 20px 40px rgba(74,144,226,0.15) !important;
 }
 
+/* Остальные стили без изменений */
 .card-title {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 0 24px 0;
-    padding: 0;
-    color: inherit;
-    line-height: 1.2;
+    text-align: center; font-size: 20px; font-weight: bold; margin: 0 0 24px 0; color: inherit; line-height: 1.2;
 }
 
-.card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-}
+.card-content { display: flex; flex-direction: column; align-items: center; gap: 0; }
 
-.avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 20px;
-}
+.avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
+h1 { text-align: center; margin-bottom: 20px; }
 
-.buttons-container {
-    text-align: center;
-    width: 100%;
-}
+.buttons-container { text-align: center; width: 100%; }
 
 .button {
-    display: inline-block;
-    padding: 14px 24px;
-    border-radius: 16px;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-    margin: 8px;
-    border: 2px solid transparent;
+    display: inline-block; padding: 14px 24px; border-radius: 16px; background: var(--accent);
+    color: white; text-decoration: none; font-weight: bold; transition: 0.3s; margin: 8px; border: 2px solid transparent;
 }
 
-.button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(74,144,226,0.4);
-    background: var(--accent-light);
-}
+.button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(74,144,226,0.4); background: var(--accent-light); }
 
-.button.secondary {
-    background: #ff4d4d;
-}
-
-.button.secondary:hover {
-    background: #ff6666;
-    box-shadow: 0 10px 20px rgba(255,77,77,0.4);
-}
+.button.secondary { background: #ff4d4d; }
+.button.secondary:hover { background: #ff6666; box-shadow: 0 10px 20px rgba(255,77,77,0.4); }
 
 .nft-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    width: 100%;
-    max-width: 351px;
-    margin: 0 auto;
-    justify-items: center;
-    justify-content: center;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; width: 100%; max-width: 351px;
+    margin: 0 auto; justify-items: center; justify-content: center;
 }
 
 .nft-card {
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: 0.3s;
-    position: relative;
-    aspect-ratio: 1;
-    width: 105px;
-    height: 105px;
+    border-radius: 16px; overflow: hidden; cursor: pointer; transition: 0.3s; position: relative;
+    aspect-ratio: 1; width: 105px; height: 105px;
 }
 
-.nft-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+.nft-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.nft-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-}
+.nft-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
 
 .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    opacity: 0;
-    transition: 0.3s;
+    position: absolute; inset: 0; background: rgba(0,0,0,0.7); color: white;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;
+    opacity: 0; transition: 0.3s;
 }
 
-.nft-card:hover .overlay {
-    opacity: 1;
-}
+.nft-card:hover .overlay { opacity: 1; }
 
-.center {
-    text-align: center;
-}
+.center { text-align: center; }
 
 .footer {
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 30px;
-    padding: 0 20px;
-    text-align: center;
+    width: 100%; max-width: 900px; margin: 40px auto 30px; padding: 0 20px; text-align: center;
 }
 
-.footer-text {
-    font-size: 14px;
-    color: var(--footer-text);
-    line-height: 1.4;
-    margin: 0 0 4px 0;
-}
+.footer-text { font-size: 14px; color: var(--footer-text); line-height: 1.4; margin: 0 0 4px 0; }
 
-.footer-links {
-    margin: 0;
-}
+.footer-links { margin: 0; }
+.footer-link { color: var(--accent); text-decoration: none; font-weight: 500; margin: 0 2px; }
+.footer-link:hover { text-decoration: underline; }
 
-.footer-link {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    margin: 0 2px;
-}
-
-.footer-link:hover {
-    text-decoration: underline;
-}
-
-/* Медиа-запросы без изменений */
+/* Медиа-запросы */
 @media (max-width: 430px) {
     .container { padding: 12px; margin: 20px auto; }
     .card { padding: 20px 16px; margin-bottom: 24px; max-width: 100%; }
@@ -238,6 +185,7 @@ h1 {
     .nft-card { width: 105px; height: 105px; }
     .footer { margin: 30px auto 20px; padding: 0 12px; }
     .footer-text { font-size: 13px; }
+    .theme-toggle { top: 10px; right: 10px; width: 50px; height: 50px; font-size: 20px; }
 }
 
 @media (min-width: 431px) and (max-width: 768px) {
@@ -255,10 +203,12 @@ h1 {
 </style>
 </head>
 
-<body>
+<body class="light">
+
+<div class="theme-toggle" id="themeToggle" title="Сменить тему">☀️</body>
 
 <div class="container">
-    <!-- Контент без изменений -->
+
     <div class="card center">
         <img src="ава1.jpg" class="avatar">
         <h1>Артур Хайрутдинов</h1>
@@ -269,8 +219,12 @@ h1 {
         <div class="card-content">
             <h2 class="card-title">Links</h2>
             <div class="buttons-container">
-                <a class="button secondary" href="https://youtube.com/channel/UCa_8XR9xVRDRBhkXJ8dAc3g/live" target="_blank">important youtube</a>
-                <a class="button" href="https://t.me/Church_Barnaul" target="_blank">important t.me</a>
+                <a class="button secondary" href="https://youtube.com/channel/UCa_8XR9xVRDRBhkXJ8dAc3g/live" target="_blank">
+                    important youtube
+                </a>
+                <a class="button" href="https://t.me/Church_Barnaul" target="_blank">
+                    important t.me
+                </a>
             </div>
         </div>
     </div>
@@ -279,67 +233,59 @@ h1 {
         <div class="card-content">
             <h2 class="card-title">Telegram Gifts</h2>
             <div class="nft-grid">
-                <a href="https://t.me/nft/VoodooDoll-19509" target="_blank" class="nft-card"><img src="1.JPG"><div class="overlay">Перейти к NFT</div></a>
-                <a href="https://t.me/nft/HexPot-4950" target="_blank" class="nft-card"><img src="22.JPG"><div class="overlay">Перейти к NFT</div></a>
-                <a href="https://t.me/nft/LightSword-23178" target="_blank" class="nft-card"><img src="3.JPG"><div class="overlay">Перейти к NFT</div></a>
-                <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card"><img src="5.JPG"><div class="overlay">Перейти к NFT</div></a>
-                <a href="https://t.me/nft/FreshSocks-68910" target="_blank" class="nft-card"><img src="55.JPG"><div class="overlay">Перейти к NFT</div></a>
-                <a href="https://t.me/nft/LunarSnake-4132" target="_blank" class="nft-card"><img src="6.JPG"><div class="overlay">Перейти к NFT</div></a>
+                <a href="https://t.me/nft/VoodooDoll-19509" target="_blank" class="nft-card">
+                    <img src="1.JPG"><div class="overlay">Перейти к NFT</div>
+                </a>
+                <a href="https://t.me/nft/HexPot-4950" target="_blank" class="nft-card">
+                    <img src="22.JPG"><div class="overlay">Перейти к NFT</div>
+                </a>
+                <a href="https://t.me/nft/LightSword-23178" target="_blank" class="nft-card">
+                    <img src="3.JPG"><div class="overlay">Перейти к NFT</div>
+                </a>
+                <a href="https://t.me/nft/GingerCookie-83252" target="_blank" class="nft-card">
+                    <img src="5.JPG"><div class="overlay">Перейти к NFT</div>
+                </a>
+                <a href="https://t.me/nft/FreshSocks-68910" target="_blank" class="nft-card">
+                    <img src="55.JPG"><div class="overlay">Перейти к NFT</div>
+                </a>
+                <a href="https://t.me/nft/LunarSnake-4132" target="_blank" class="nft-card">
+                    <img src="6.JPG"><div class="overlay">Перейти к NFT</div>
+                </a>
             </div>
         </div>
     </div>
+
 </div>
 
 <footer class="footer">
-    <p class="footer-text">Made for free with <a href="https://chat.openai.com" target="_blank" class="footer-link">ChatGPT</a> and <a href="https://www.perplexity.ai" target="_blank" class="footer-link">Perplexity AI</a>.</p>
-    <p class="footer-text footer-links">Hosted on <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>. <a href="https://t.me/kh4rtur" target="_blank" class="footer-link">How? Ask me, I will help you with that</a></p>
+    <p class="footer-text">
+        Made for free with <a href="https://chat.openai.com" target="_blank" class="footer-link">ChatGPT</a> and 
+        <a href="https://www.perplexity.ai" target="_blank" class="footer-link">Perplexity AI</a>.
+    </p>
+    <p class="footer-text footer-links">
+        Hosted on <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>.
+        <a href="https://t.me/kh4rtur" target="_blank" class="footer-link">How? Ask me, I will help you with that</a>
+    </p>
 </footer>
 
 <script>
-function applyTheme() {
-    // Debug в консоль (F12)
-    console.log('=== Theme Debug ===');
-    
-    const mql = window.matchMedia('(prefers-color-scheme: dark)');
-    const prefersDark = mql.matches;
-    const hour = new Date().getHours();
-    const isNight = hour >= 20 || hour < 7;
-    
-    console.log('prefersDark:', prefersDark);
-    console.log('hour:', hour, 'isNight:', isNight);
+const toggle = document.getElementById('themeToggle');
+
+// Загрузка сохранённой темы
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.body.classList.add(savedTheme);
+toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+toggle.addEventListener('click', () => {
+    const current = document.body.classList.contains('dark') ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
     
     document.body.classList.remove('dark', 'light');
+    document.body.classList.add(next);
     
-    let isDark;
-    
-    if (mql.matches !== undefined) {
-        // Приоритет: системная тема
-        isDark = prefersDark;
-        console.log('Used: system preference (prefersDark)');
-    } else {
-        // Fallback: время
-        isDark = isNight;
-        console.log('Used: time fallback (night mode)');
-    }
-    
-    if (isDark) {
-        document.body.classList.add('dark');
-        console.log('Applied: dark');
-    } else {
-        document.body.classList.add('light');
-        console.log('Applied: light');
-    }
-    
-    console.log('==================');
-}
-
-// Задержка 100ms для iOS/Safari/Chromium багов + запуск
-setTimeout(applyTheme, 100);
-
-// Listener
-if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
-}
+    toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    localStorage.setItem('theme', next);
+});
 </script>
 
 </body>
