@@ -15,7 +15,7 @@
     --text-light: #1a365d;
     --accent: #4a90e2;
     --accent-light: #5aa3f0;
-    --first-card-bg: rgb(75, 124, 174);
+    --first-card-bg: rgb(71, 113, 147);
     --footer-text: #6b7280;
 }
 
@@ -31,15 +31,21 @@ body {
 }
 
 body.dark {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-    --footer-text: #9ca3af;
+    background: var(--bg-dark) !important;
+    color: var(--text-dark) !important;
 }
 
 body.light {
-    background: var(--bg-light);
-    color: var(--text-light);
+    background: var(--bg-light) !important;
+    color: var(--text-light) !important;
+}
+
+body.light {
     --footer-text: #6b7280;
+}
+
+body.dark {
+    --footer-text: #9ca3af;
 }
 
 .container {
@@ -65,18 +71,18 @@ body.light {
 
 .card:first-child {
     background: var(--first-card-bg) !important;
-    color: white;
-    box-shadow: 0 20px 40px rgba(75,124,174,0.3);
+    color: white !important;
+    box-shadow: 0 20px 40px rgba(71,113,147,0.3) !important;
 }
 
-.dark .card:not(:first-child) {
-    background: var(--card-dark);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+body.dark .card:not(:first-child) {
+    background: var(--card-dark) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
 }
 
-.light .card:not(:first-child) {
-    background: var(--card-light);
-    box-shadow: 0 20px 40px rgba(74,144,226,0.15);
+body.light .card:not(:first-child) {
+    background: var(--card-light) !important;
+    box-shadow: 0 20px 40px rgba(74,144,226,0.15) !important;
 }
 
 .card-title {
@@ -308,7 +314,7 @@ h1 {
 </style>
 </head>
 
-<body>
+<body class="light">
 
 <div class="container">
 
